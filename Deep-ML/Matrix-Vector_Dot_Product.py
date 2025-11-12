@@ -25,3 +25,22 @@ def matrix_dot_vector(a: list[list[int|float]], b: list[int|float]) -> list[int|
     return results
 
 print(matrix_dot_vector([[1, 2, 3], [2, 4, 5], [6, 8, 9]], [1, 2, 3]))
+
+
+def matrix_dot_vector(a: list[list[int|float]], b: list[int|float]) -> list[int|float]:
+	if not a or not a[0]:
+        return -1
+    
+    num_rows = len(a)
+    num_cols = len(a[0])
+    
+    if len(b) != num_cols:
+        return -1
+    
+    results = []
+    for row in a:     
+        
+        c = sum(row[j]*b[j] for j in range(num_cols))
+        results.append(c) # append the dot product to the results list
+    
+    return results
